@@ -15,7 +15,7 @@ var descAlert  = document.getElementById('desc-alert');
 var nameRegex=/^\w+$/;
 var typeRegex=/^(Tablet|Watch|Screen|Mobile)+$/;
 var priceRegex=/^([1-9][0-9]{3}|10000)+$/;
-var descRegex=/^\d{3,500}$/;
+var descRegex=/^\w{3,500}$/;
 
 var currentIndex = null; 
 var productList = [];
