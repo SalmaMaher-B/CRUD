@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <link rel="stylesheet" href="css\all.min.css">
+    <link rel="stylesheet" href="css\bootstrap.min.css">
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <link rel="stylesheet" href="css\stylesheet.css">
+</head>
+<body>
+<div class="shell">
+  <div class="topbar">
+    <div class="topbar-left">
+      <h2>Product manager</h2>
+      <p>Track and manage your items</p>
+    </div>
+    <div class="count-chip" id="count-chip"><span id="count-chip-counter" class="badge bg-dark text-light mx-1">0</span>items</div>
+  </div>
+
+  <div class="layout">
+    <div class="panel">
+      <div class="panel-label" id="form-label">New item</div>
+      <div class="edit-notice" id="edit-notice">Adding <span id="editing-name">—</span></div>
+
+      <div class="field">
+        <label>Name</label>
+        <input type="text" id="f-name" placeholder="e.g. Pro License"oninput="validate(nameInput, nameRegex,nameAlert)">
+        <div class="alert alert-danger mt-1 d-none"id="name-alert" role="alert">
+            write the product name !
+        </div>
+      </div>
+      <div class="field">
+        <label>Price</label>
+        <div class="price-wrap">
+          <span class="price-prefix">$</span>
+          <input type="number" id="f-price" placeholder="0.00" min="0" step="0.01" style="padding-left:28px"oninput="validate(priceInput, priceRegex,priceAlert)">
+        </div>
+        <div class="alert alert-danger mt-1 d-none" id="price-alert" role="alert">
+              write the price between 1000-10000 !
+        </div>
+      </div>
+      <div class="field">
+        <label>Type</label>
+        <!-- <div id=""> -->
+          <input type="text" id="f-type" placeholder="Moblie ,Watch..." min="0" step="0.01" style="padding-left:28px" oninput="validate(typeInput, typeRegex,typeAlert)">
+          <div class="alert alert-danger mt-1 d-none" id="type-alert" role="alert">
+              write one from[Moblie,Watch,Screen,Tablet] !
+          </div>
+          <!-- <option value="">Select type…</option>
+          <option value="product">Moblie</option>
+          <option value="service">Watch</option>
+          <option value="subscription">Screen</option>
+          <option value="other">Tablet</option> -->
+        <!-- </div> -->
+      </div>
+      <div class="field">
+        <label>Description</label>
+        <textarea id="f-desc" placeholder="Short description…" oninput="validate(descInput, descRegex,descAlert)"></textarea>
+        <div class="alert alert-danger mt-1 d-none"id="desc-alert" role="alert">
+           write the product description from 3 to 500 digit
+          </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-primary" id="btn-submit" onclick="addItem()">Add item</button>
+        <button class="btn-primary d-none" id="updateBtn" onclick="update()">update item</button>
+        <button class="btn-ghost" id="btn-cancel" onclick="cancelation()">Cancel</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="search-wrap">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="search" placeholder="Search items…" oninput="searchFn()">
+      </div>
+
+      <!-- <div class="filter-row" id="filter-row">
+        <button class="filter-btn active" data-f="" onclick="">All</button>
+        <button class="filter-btn" data-f="product" onclick="">Moblie</button>
+        <button class="filter-btn" data-f="service" onclick="">Watch</button>
+        <button class="filter-btn" data-f="subscription" onclick="">Screen</button>
+        <button class="filter-btn" data-f="other" onclick="">Tablet</button>
+      </div> -->
+
+      <div class="card-grid" id="card-grid"></div>
+      <div class="empty " id="empty-state" style="display:none">
+        <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        <p>No items found</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+    <script src="js\bootstrap.bundle.min.js"></script>
+    <script src="js\all.min.js"></script>
+    <script src="sweetalert2.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
