@@ -25,31 +25,31 @@
       <div class="panel-label" id="form-label">New item</div>
       <div class="edit-notice" id="edit-notice">Adding <span id="editing-name">—</span></div>
 
-      <div class="field">
+      <div class=" field has-validation position-relative">
         <label>Name</label>
-        <input type="text" id="f-name" placeholder="e.g. Pro License"oninput="validate(nameInput, nameRegex,nameAlert)">
+        <input type="text" class="is-valid" id="f-name" placeholder="e.g. Pro License"oninput="validate(nameInput, nameRegex,nameAlert)">
         <div class="alert alert-danger mt-1 d-none"id="name-alert" role="alert">
             write the product name !
         </div>
       </div>
-      <div class="field">
+      <div class=" field has-validation position-relative">
         <label>Price</label>
         <div class="price-wrap">
           <span class="price-prefix">$</span>
-          <input type="number" id="f-price" placeholder="0.00" min="0" step="0.01" style="padding-left:28px"oninput="validate(priceInput, priceRegex,priceAlert)">
+          <input type="number" class="is-valid" id="f-price" placeholder="0.00" min="0" step="0.01" style="padding-left:28px"oninput="validate(priceInput, priceRegex,priceAlert)">
         </div>
         <div class="alert alert-danger mt-1 d-none" id="price-alert" role="alert">
               write the price between 1000-10000 !
         </div>
       </div>
-      <div class="field">
+      <div class=" field has-validation position-relative">
         <label>Type</label>
-          <input type="text" id="f-type" placeholder="Mobile ,Watch..." min="0" step="0.01" style="padding-left:28px" oninput="validate(typeInput, typeRegex,typeAlert)">
+          <input type="text" class="is-valid" id="f-type" placeholder="Mobile ,Watch..." min="0" step="0.01" style="padding-left:28px" oninput="validate(typeInput, typeRegex,typeAlert)">
           <div class="alert alert-danger mt-1 d-none" id="type-alert" role="alert">
               write one from[Moblie,Watch,Screen,Tablet] !
           </div>
       </div>
-      <div class="field">
+      <div class=" field has-validation position-relative">
         <label>Description</label>
         <textarea id="f-desc" placeholder="Short description…" oninput="validate(descInput, descRegex,descAlert)"></textarea>
         <div class="alert alert-danger mt-1 d-none"id="desc-alert" role="alert">
@@ -65,9 +65,9 @@
     </div>
 
     <div class="panel">
-      <div class="search-wrap">
+      <div class="search-wrap field has-validation position-relative">
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <input type="text" id="search" placeholder="Search items…" oninput="searchFn()">
+        <input type="text" class="is-valid" id="search" placeholder="Search items…" oninput="searchFn()">
       </div>
       <div class="card-grid" id="card-grid"></div>
       <div class="empty " id="empty-state" style="display:none">

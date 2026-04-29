@@ -63,23 +63,13 @@ function addItem(){
                  confirmButtonColor: "#6f42c1"
             });
         }});
-    }else{
-        // nameInput.classList.remove('is-valid');
-        // priceInput.classList.remove('is-valid');
-        // typeInput.classList.remove('is-valid');
-        // descInput.classList.remove('is-valid');
-        // nameInput.classList.add('is-invalid');
-        // priceInput.classList.add('is-invalid');
-        // typeInput.classList.add('is-invalid');
-        // descInput.classList.add('is-invalid');
-    }
-
+    };
 }
 function display(){
     var box="";
     for(var i=0;i<productList.length;i++){
         box+= `
-             <div class="item-card">
+             <div class="item-card m-3">
              <div class="card-name d-flex gap-2"><span class="fw-bold">Name:</span> ${productList[i].name}</div>
                <span class="card-type d-flex gap-"><span class="fw-bold">Type:</span> ${productList[i].type}</span>
                <div class="card-price d-flex gap-2"><span class="fw-bold">Price:</span> $${productList[i].price}</div>
@@ -112,12 +102,16 @@ function cancelation(){
     priceInput.value = "";
     typeInput.value = "";
     descInput.value = "";
+    nameInput.style.borderColor = "";
+    priceInput.style.borderColor = "";
+    typeInput.style.borderColor = "";
+    descInput.style.borderColor = "";
     addBtn.classList.remove('d-none');
     updateBtn.classList.add('d-none');
-    nameInput.classList.remove('is-invalid');
-    priceInput.classList.remove('is-invalid');
-    typeInput.classList.remove('is-invalid');
-    descInput.classList.remove('is-invalid');
+    nameAlert.classList.add('d-none');       
+    priceAlert.classList.add('d-none');       
+    typeAlert.classList.add('d-none');        
+    descAlert.classList.add('d-none');
 }
 function clearForm() {
   nameInput.value = "";
@@ -128,7 +122,7 @@ function clearForm() {
 function update(){
      Swal.fire({
         title: "Are you sure?",
-        text: "You won't be able to update this!",
+        text: "You want to update this!",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
