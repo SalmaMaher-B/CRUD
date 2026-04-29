@@ -29,24 +29,42 @@ function addItem(){
          validate(priceInput, priceRegex, priceAlert) && 
          validate(typeInput, typeRegex, typeAlert) && 
          validate(descInput, descRegex, descAlert)) {
-        var product={
-            name : nameInput.value,
-            price : priceInput.value,
-            type : typeInput.value,
-            desc : descInput.value,
-        };
-        productList.push(product);
-        nameInput.classList.add('is-valid');
-        priceInput.classList.add('is-valid');
-        typeInput.classList.add('is-valid');
-        descInput.classList.add('is-valid');
-        nameInput.classList.remove('is-invalid');
-        priceInput.classList.remove('is-invalid');
-        typeInput.classList.remove('is-invalid');
-        descInput.classList.remove('is-invalid');
-        display();
-        localStorage.setItem("products", JSON.stringify(productList));
-        clearForm();
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+              if (result.isConfirmed) {
+                var product={
+                name : nameInput.value,
+                price : priceInput.value,
+                type : typeInput.value,
+                desc : descInput.value,
+            };
+            productList.push(product);
+            nameInput.classList.add('is-valid');
+            priceInput.classList.add('is-valid');
+            typeInput.classList.add('is-valid');
+            descInput.classList.add('is-valid');
+            nameInput.classList.remove('is-invalid');
+            priceInput.classList.remove('is-invalid');
+            typeInput.classList.remove('is-invalid');
+            descInput.classList.remove('is-invalid');
+            display();
+            localStorage.setItem("products", JSON.stringify(productList));
+
+            clearForm();
+            Swal.fire({
+                 title: "Added Successfully!",
+                 text: "Your product is now in the list.",
+                 icon: "success",
+                 confirmButtonColor: "#6f42c1"
+            });
+        }});
     }else{
         // nameInput.classList.remove('is-valid');
         // priceInput.classList.remove('is-valid');
@@ -106,28 +124,61 @@ function clearForm() {
   descInput.value = "";
 }
 function update(){
-    // currentIndex=index;
-    productList[currentIndex].type = typeInput.value;
-    productList[currentIndex].name  = nameInput.value;
-    productList[currentIndex].price = priceInput.value;
-    productList[currentIndex].desc = descInput.value;
-    console.log('hiiiiiiii');
-    localStorage.setItem("products", JSON.stringify(productList));
-    display();
-    clearForm();
-    addBtn.classList.remove('d-none');
-    updateBtn.classList.add('d-none');
+     Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to update this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, update it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            productList[currentIndex].type = typeInput.value;
+            productList[currentIndex].name  = nameInput.value;
+            productList[currentIndex].price = priceInput.value;
+            productList[currentIndex].desc = descInput.value;
+            console.log('hiiiiiiii');
+            localStorage.setItem("products", JSON.stringify(productList));
+            display();
+            clearForm();
+            addBtn.classList.remove('d-none');
+            updateBtn.classList.add('d-none');
+            Swal.fire({
+                title: "updated!",
+                text: "Your item has been updated.",
+                icon: "success",
+                timer: 1500,
+                showConfirmButton: false
+            });
+        }});
 
 }
 function startDelete(index){
-    currentIndex=index;
-    productList.splice(index,1);
-    display();
-    localStorage.setItem("products", JSON.stringify(productList));
-    // if(productList.length>0){
-    //     counter.innerHTMLr=productList.length;
-    // }
-}
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            currentIndex=index;
+            productList.splice(index,1);
+            display();
+            localStorage.setItem("products", JSON.stringify(productList));
+            Swal.fire({
+                title: "Deleted!",
+                text: "Your item has been deleted.",
+                icon: "success",
+                timer: 1500,
+                showConfirmButton: false
+            });
+        }});
+    };
+
 function searchFn(){
     var box="";
     console.log(searchInput.value);
