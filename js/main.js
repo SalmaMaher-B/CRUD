@@ -12,10 +12,11 @@ var nameAlert  = document.getElementById('name-alert');
 var priceAlert = document.getElementById('price-alert');
 var typeAlert  = document.getElementById('type-alert');
 var descAlert  = document.getElementById('desc-alert');
-var nameRegex=/^\w+$/;
+var nameRegex=/^[A-Za-z0-9 ]+$/;
 var typeRegex=/^(Tablet|Watch|Screen|Mobile)+$/;
+// var priceRegex=/^([1-9][0-9]{3}|10000)$/;
 var priceRegex=/^([1-9][0-9]{3}|10000)$/;
-var descRegex=/^\w{3,500}$/;
+var descRegex=/^(?!\s*$).{3,500}$/;
 
 var currentIndex = null; 
 var productList = [];
@@ -156,9 +157,11 @@ function validate(element, regex, alertDiv) {
         element.classList.add('is-valid');
         element.classList.remove('is-invalid');
         alertDiv.classList.add('d-none');
+        return true;
     } else {
         element.classList.add('is-invalid');
         element.classList.remove('is-valid');
         alertDiv.classList.remove('d-none');
+        return false;
     }
 }
