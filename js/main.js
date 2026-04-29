@@ -14,10 +14,8 @@ var typeAlert  = document.getElementById('type-alert');
 var descAlert  = document.getElementById('desc-alert');
 var nameRegex=/^[A-Za-z0-9 ]+$/;
 var typeRegex=/^(Tablet|Watch|Screen|Mobile)+$/;
-// var priceRegex=/^([1-9][0-9]{3}|10000)$/;
 var priceRegex=/^([1-9][0-9]{3}|10000)$/;
 var descRegex=/^(?!\s*$).{3,500}$/;
-
 var currentIndex = null; 
 var productList = [];
 if (localStorage.getItem("products")) {
@@ -116,6 +114,10 @@ function cancelation(){
     descInput.value = "";
     addBtn.classList.remove('d-none');
     updateBtn.classList.add('d-none');
+    nameInput.classList.remove('is-invalid');
+    priceInput.classList.remove('is-invalid');
+    typeInput.classList.remove('is-invalid');
+    descInput.classList.remove('is-invalid');
 }
 function clearForm() {
   nameInput.value = "";
