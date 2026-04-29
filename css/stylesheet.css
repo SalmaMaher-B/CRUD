@@ -1,11 +1,10 @@
-/* الألوان الجديدة لتحسين التباين */
 :root {
-    --color-background-primary: #ffffff;    /* أبيض نقي للعناصر البارزة */
-    --color-background-secondary: #f9fafb;  /* رمادي فاتح جداً للمدخلات */
-    --color-background-tertiary: #f0f2f5;   /* لون الخلفية الأساسية للشاشة */
-    --color-border-primary: #3b82f6;        /* لون أزرق للتركيز */
-    --color-border-secondary: #e5e7eb;      /* لون الحدود الافتراضية */
-    --color-border-tertiary: #d1d5db;       /* حدود الألواح */
+    --color-background-primary: #ffffff;     
+    --color-background-secondary: #f9fafb;    
+    --color-background-tertiary: #f0f2f5; 
+    --color-border-primary: #3b82f6;      
+    --color-border-secondary: #e5e7eb;    
+    --color-border-tertiary: #d1d5db;     
     --color-text-primary: #111827;
     --color-text-secondary: #4b5563;
     --color-text-tertiary: #9ca3af;
@@ -15,7 +14,7 @@
 
 body,html{
     font-family:'DM Sans',sans-serif;
-    background: var(--color-background-tertiary); /* تم تغيير الخلفية لتصبح داكنة قليلاً لتبرز البطاقات */
+    background: var(--color-background-tertiary); 
     color: var(--color-text-primary);
 }
 
@@ -39,13 +38,12 @@ body,html{
 
 .layout{display:grid;grid-template-columns:350px minmax(0,1fr);gap:24px;align-items:start}
 
-/* لوحة التحكم الجانبية */
 .panel{
     background:var(--color-background-primary);
     border:1px solid var(--color-border-secondary);
     border-radius:16px;
     padding:24px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* إضافة ظل لإعطاء عمق */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
 }
 
 .panel-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:20px}
@@ -55,7 +53,7 @@ body,html{
 
 .field input, .field select, .field textarea{
     width:100%;
-    background:var(--color-background-secondary); /* لون خلفية المدخلات */
+    background:var(--color-background-secondary); 
     border:1.5px solid var(--color-border-secondary);
     border-radius:10px;
     padding:12px;
@@ -137,7 +135,6 @@ body,html{
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     border-color: var(--color-border-tertiary);
 }
-/* تنسيق موحد لجميع أزرار الأكشن (Edit, Delete, Cancel) */
 .act-btn, .btn-ghost, button {
     font-size: 13px;
     font-weight: 600;
@@ -152,7 +149,6 @@ body,html{
     margin-top: 5px;
 }
 
-/* تنسيق زر Cancel */
 .btn-ghost, .cancel-btn {
     background: #f3f4f6;
     color: #4b5563;
@@ -164,7 +160,6 @@ body,html{
     color: #111827;
 }
 
-/* تنسيق زر Delete */
 .act-del, .delete-btn {
     background: #fff5f5;
     color: #c53030;
@@ -176,7 +171,6 @@ body,html{
     color: #9b2c2c;
 }
 
-/* تنسيق زر Edit / Update */
 .act-edit, .update-btn {
     background: #ebf8ff;
     color: #2b6cb0;
@@ -188,11 +182,51 @@ body,html{
     color: #2c5282;
 }
 
-/* للتأكد من أن الأزرار داخل الكروت تظهر بشكل بجانب بعضها */
 .card-actions {
     display: flex;
     gap: 10px;
     margin-top: 15px;
     padding-top: 15px;
     border-top: 1px solid var(--color-border-secondary);
+}
+@media (max-width: 768px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .shell {
+        padding: 20px 16px;
+    }
+
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .item-card {
+        padding: 16px;
+    }
+
+    .card-actions {
+        flex-direction: column;
+    }
+
+    .btn-primary {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .topbar-left h2 {
+        font-size: 20px;
+    }
+
+    .search-wrap input {
+        font-size: 13px;
+    }
+
+    .panel {
+        padding: 16px;
+    }
 }
