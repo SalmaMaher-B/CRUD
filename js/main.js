@@ -47,14 +47,14 @@ function addItem(){
         localStorage.setItem("products", JSON.stringify(productList));
         clearForm();
     }else{
-        nameInput.classList.remove('is-valid');
-        priceInput.classList.remove('is-valid');
-        typeInput.classList.remove('is-valid');
-        descInput.classList.remove('is-valid');
-        nameInput.classList.add('is-invalid');
-        priceInput.classList.add('is-invalid');
-        typeInput.classList.add('is-invalid');
-        descInput.classList.add('is-invalid');
+        // nameInput.classList.remove('is-valid');
+        // priceInput.classList.remove('is-valid');
+        // typeInput.classList.remove('is-valid');
+        // descInput.classList.remove('is-valid');
+        // nameInput.classList.add('is-invalid');
+        // priceInput.classList.add('is-invalid');
+        // typeInput.classList.add('is-invalid');
+        // descInput.classList.add('is-invalid');
     }
 
 }
